@@ -101,14 +101,22 @@ flowchart LR
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
-| :--- | :--- |
-| Language | Python 3.11+ |
-| Quantum SDK | Qiskit `>=1.0`, Qiskit Aer, Qiskit Runtime |
-| Optimisation | Qiskit Optimization / COBYLA / SPSA |
-| Simulation | AerSimulator (statevector / noisemodel) |
-| Environment | JupyterLab / VS Code, `venv` |
-| Version control | Git + GitHub |
+| **Layer** | **Technology** |
+|---|---|
+| Programming Language | Python 3.11+ |
+| Quantum SDK | Qiskit |
+| Quantum Machine Learning | Qiskit Machine Learning, Quantum Kernel, QSVC |
+| Quantum Feature Encoding | ZZFeatureMap |
+| Quantum Simulation | Qiskit Aer / Quantum Circuit Simulator |
+| Classical Machine Learning | Scikit-learn (SVC, preprocessing, evaluation metrics) |
+| Data Processing | NumPy, Pandas, SciPy |
+| Backend API | FastAPI, Uvicorn |
+| Frontend | React, TypeScript, Vite |
+| UI & Visualisation | Tailwind CSS, Recharts, Lucide React |
+| Development Environment | VS Code, Python Virtual Environment (`venv`) |
+| Version Control | Git, GitHub |
+| Frontend Deployment | Vercel |
+| Backend Deployment | Render |
 
 ---
 
@@ -120,7 +128,7 @@ vtu-hc-ctrl-ai/
 ├── requirements.txt       # Python dependencies
 ├── pyproject.toml         # Project metadata (optional)
 ├── .gitignore
-├─�� notebooks/             # Jupyter notebooks for experiments
+├── notebooks/             # Jupyter notebooks for experiments
 │   └── exploration.ipynb
 ├── src/
 │   ├── __init__.py
