@@ -60,32 +60,21 @@ Optional: add a plain list instead of the table above.
 
 ## ❓ Problem Statement
 
-<!--
-State the problem you are solving. Be specific: what is broken or missing,
-who experiences it, and why does it matter. Link to the official problem
-statement from the brief if one applies.
--->
+**Problem:** Microgrids depend on sensor data to monitor electricity demand, solar generation, battery charge, voltage, and frequency. Abnormal readings may indicate power-quality issues or unusual operating conditions, making timely anomaly detection essential.
 
-**Problem:** _Describe the problem in 2–3 sentences._
+**Why it matters:** Detecting abnormal conditions early helps operators investigate potential problems, improve monitoring, and support more reliable microgrid operation. Machine learning can identify patterns in sensor data and flag unusual behavior before it escalates.
 
-**Why it matters:** _Explain the impact or opportunity._
-
-**Track / Category:** _Online / Offline · Track 1 / Track 2 · <domain>_
+**Track / Category:** Online · Quantum + AI & ML
 
 ---
 
 ## 💡 Proposed Solution
 
-<!--
-Describe your solution. Keep it concrete: the core idea, the user flow, and
-the quantum/ML technique you are applying.
--->
+**Solution:** Q-Silience is a microgrid anomaly-detection prototype that analyzes sensor data and classifies operating conditions as normal or anomalous. It compares a Qiskit-based Quantum Kernel Support Vector Classifier (QSVC) with a classical Support Vector Classifier (SVC), using the same dataset and evaluation workflow.
 
-**Solution:** _In 2–3 sentences, describe what you built._
+**Key idea:** Apply quantum-kernel machine learning to microgrid sensor data and compare its performance against a classical machine-learning baseline.
 
-**Key idea:** _The one-line technical summary of your approach._
-
-**Why this works:** _How your approach addresses the problem statement._
+**Why this works:** The prototype evaluates both approaches using metrics such as accuracy, precision, recall, F1-score, and confusion matrices. This provides a clear comparison of their performance and explores how quantum machine learning could contribute to future energy-monitoring systems.
 
 ---
 
