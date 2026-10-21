@@ -46,9 +46,9 @@
 
 | # | Name | GitHub Username | Role |
 | :-- | :--- | :--- | :--- |
-| 1 | _Add your name_ | _your-github-username_ | _Team Lead_ |
-| 2 | _Add your name_ | _your-github-username_ | _Developer_ |
-| 3 | _Add your name_ | _your-github-username_ | _Developer_ |
+| 1 | Dhyan P | Dhyanpol55 | Team Lead |
+| 2 | Sangamesh Athani | SangameshAthani | Developer |
+| 3 | Harsha Hiregoudar | harshhgouda-byte | Developer |
 
 <!--
 Optional: add a plain list instead of the table above.
@@ -60,54 +60,42 @@ Optional: add a plain list instead of the table above.
 
 ## ❓ Problem Statement
 
-<!--
-State the problem you are solving. Be specific: what is broken or missing,
-who experiences it, and why does it matter. Link to the official problem
-statement from the brief if one applies.
--->
+**Problem:** Microgrids depend on sensor data to monitor electricity demand, solar generation, battery charge, voltage, and frequency. Abnormal readings may indicate power-quality issues or unusual operating conditions, making timely anomaly detection essential.
 
-**Problem:** _Describe the problem in 2–3 sentences._
+**Why it matters:** Detecting abnormal conditions early helps operators investigate potential problems, improve monitoring, and support more reliable microgrid operation. Machine learning can identify patterns in sensor data and flag unusual behavior before it escalates.
 
-**Why it matters:** _Explain the impact or opportunity._
-
-**Track / Category:** _Online / Offline · Track 1 / Track 2 · <domain>_
+**Track / Category:** Online · Quantum + AI & ML
 
 ---
 
 ## 💡 Proposed Solution
 
-<!--
-Describe your solution. Keep it concrete: the core idea, the user flow, and
-the quantum/ML technique you are applying.
--->
+**Solution:** Q-Silience is a microgrid anomaly-detection prototype that analyzes sensor data and classifies operating conditions as normal or anomalous. It compares a Qiskit-based Quantum Kernel Support Vector Classifier (QSVC) with a classical Support Vector Classifier (SVC), using the same dataset and evaluation workflow.
 
-**Solution:** _In 2–3 sentences, describe what you built._
+**Key idea:** Apply quantum-kernel machine learning to microgrid sensor data and compare its performance against a classical machine-learning baseline.
 
-**Key idea:** _The one-line technical summary of your approach._
-
-**Why this works:** _How your approach addresses the problem statement._
+**Why this works:** The prototype evaluates both approaches using metrics such as accuracy, precision, recall, F1-score, and confusion matrices. This provides a clear comparison of their performance and explores how quantum machine learning could contribute to future energy-monitoring systems.
 
 ---
 
 ## 🧩 Approach & Architecture
 
-<!--
-Walk through how it works. A simple pipeline diagram in text or Mermaid is ideal.
--->
-
 ```mermaid
 flowchart LR
-    A[Input Data] --> B[Preprocessing]
-    B --> C[Quantum Circuit / Model]
-    C --> D[Post-processing]
-    D --> E[Output]
+    A["INPUT<br/>Microgrid Sensor Data"] --> B["PREPROCESSING<br/>Clean · Scale · Split"]
+    B --> C["QUANTUM MODEL<br/>Qiskit ZZ Feature Map<br/>Quantum Kernel + QSVC"]
+    B --> D["CLASSICAL MODEL<br/>SVC Classifier"]
+    C --> E["EVALUATION<br/>Accuracy · Precision<br/>Recall · F1 · Runtime"]
+    D --> E
+    E --> F["OUTPUT<br/>Anomaly Prediction<br/>Quantum vs Classical Dashboard"]
 ```
 
-1. **Input** — _what data goes in and in what format_
-2. **Preprocessing** — _cleaning, feature extraction, encoding_
-3. **Quantum core** — _the circuit, ansatz, or algorithm used_
-4. **Post-processing** — _decoding, measurement, scoring_
-5. **Output** — _what the user finally gets_
+1. **Input** — Microgrid sensor readings such as demand, solar generation, battery level, voltage, and frequency.
+2. **Preprocessing** — Clean the dataset, normalize features, and split it into training and testing sets for fair comparison.
+3. **Quantum model** — Use a Qiskit-based ZZ feature map with a quantum kernel and QSVC to learn anomaly patterns.
+4. **Classical model** — Train a conventional SVC as the baseline using the same data and feature representation.
+5. **Evaluation** — Compare both models using accuracy, precision, recall, F1-score, and runtime.
+6. **Output** — Generate anomaly predictions and a side-by-side comparison of quantum and classical performance.
 
 ---
 
@@ -132,7 +120,7 @@ vtu-hc-ctrl-ai/
 ├── requirements.txt       # Python dependencies
 ├── pyproject.toml         # Project metadata (optional)
 ├── .gitignore
-├── notebooks/             # Jupyter notebooks for experiments
+├─�� notebooks/             # Jupyter notebooks for experiments
 │   └── exploration.ipynb
 ├── src/
 │   ├── __init__.py
