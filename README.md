@@ -123,22 +123,49 @@ flowchart LR
 ## 📁 Project Structure
 
 ```text
-vtu-hc-ctrl-ai/
-├── README.md              # This file
-├── requirements.txt       # Python dependencies
-├── pyproject.toml         # Project metadata (optional)
+Q-Silience/
+├── frontend/
+│   ├── public/
+│   │   └── assets/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── charts/
+│   │   ├── services/
+│   │   │   └── api.ts
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── package.json
+│   └── vite.config.ts
+│
+├── backend/
+│   ├── app/
+│   │   ├── main.py
+│   │   ├── routes/
+│   │   │   └── prediction.py
+│   │   ├── models/
+│   │   │   ├── quantum_model.py
+│   │   │   └── classical_model.py
+│   │   ├── services/
+│   │   │   ├── preprocessing.py
+│   │   │   └── evaluation.py
+│   │   └── schemas/
+│   │       └── sensor_data.py
+│   ├── tests/
+│   └── requirements.txt
+│
+├── data/
+│   └── generate_data.py
+│
+├── notebooks/
+│   └── experimentation.ipynb
+│
+├── docs/
+│   └── architecture.md
+│
+├── README.md
 ├── .gitignore
-├── notebooks/             # Jupyter notebooks for experiments
-│   └── exploration.ipynb
-├── src/
-│   ├── __init__.py
-│   ├── circuit.py         # Quantum circuit construction
-│   ├── optimizer.py       # Optimization loop
-│   └── main.py            # Entry point
-├── data/                  # Datasets (use Git LFS for large files)
-├── tests/                 # Unit tests
-│   └── test_circuit.py
-└── docs/                  # Notes, diagrams, reports
+└── requirements.txt
 ```
 
 ---
