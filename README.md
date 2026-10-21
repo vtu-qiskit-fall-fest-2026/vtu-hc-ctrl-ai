@@ -80,23 +80,22 @@ Optional: add a plain list instead of the table above.
 
 ## 🧩 Approach & Architecture
 
-<!--
-Walk through how it works. A simple pipeline diagram in text or Mermaid is ideal.
--->
-
 ```mermaid
 flowchart LR
-    A[Input Data] --> B[Preprocessing]
-    B --> C[Quantum Circuit / Model]
-    C --> D[Post-processing]
-    D --> E[Output]
+    A["INPUT<br/>Microgrid Sensor Data"] --> B["PREPROCESSING<br/>Clean · Scale · Split"]
+    B --> C["QUANTUM MODEL<br/>Qiskit ZZ Feature Map<br/>Quantum Kernel + QSVC"]
+    B --> D["CLASSICAL MODEL<br/>SVC Classifier"]
+    C --> E["EVALUATION<br/>Accuracy · Precision<br/>Recall · F1 · Runtime"]
+    D --> E
+    E --> F["OUTPUT<br/>Anomaly Prediction<br/>Quantum vs Classical Dashboard"]
 ```
 
-1. **Input** — _what data goes in and in what format_
-2. **Preprocessing** — _cleaning, feature extraction, encoding_
-3. **Quantum core** — _the circuit, ansatz, or algorithm used_
-4. **Post-processing** — _decoding, measurement, scoring_
-5. **Output** — _what the user finally gets_
+1. **Input** — Microgrid sensor readings such as demand, solar generation, battery level, voltage, and frequency.
+2. **Preprocessing** — Clean the dataset, normalize features, and split it into training and testing sets for fair comparison.
+3. **Quantum model** — Use a Qiskit-based ZZ feature map with a quantum kernel and QSVC to learn anomaly patterns.
+4. **Classical model** — Train a conventional SVC as the baseline using the same data and feature representation.
+5. **Evaluation** — Compare both models using accuracy, precision, recall, F1-score, and runtime.
+6. **Output** — Generate anomaly predictions and a side-by-side comparison of quantum and classical performance.
 
 ---
 
@@ -121,7 +120,7 @@ vtu-hc-ctrl-ai/
 ├── requirements.txt       # Python dependencies
 ├── pyproject.toml         # Project metadata (optional)
 ├── .gitignore
-├── notebooks/             # Jupyter notebooks for experiments
+├─�� notebooks/             # Jupyter notebooks for experiments
 │   └── exploration.ipynb
 ├── src/
 │   ├── __init__.py
