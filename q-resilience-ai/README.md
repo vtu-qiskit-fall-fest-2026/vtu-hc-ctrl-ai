@@ -1,1 +1,0 @@
-q-resilience-ai/README.md
