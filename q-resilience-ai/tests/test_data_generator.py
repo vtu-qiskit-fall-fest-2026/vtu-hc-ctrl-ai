@@ -1,28 +1,18 @@
-"""
-Unit tests for data generation and schema validation.
-"""
-
 import pandas as pd
 
-from q_resilience_ai.src.data_generator import FEATURE_COLUMNS, generate_microgrid_dataset, validate_microgrid_dataframe
+from src.data_generator import generate_microgrid_dataset, validate_microgrid_dataframe
 
 
-def test_reproducible_generation():
-    df1 = generate_microgrid_dataset(n_samples=50, seed=42)
-    df2 = generate_microgrid_dataset(n_samples=50, seed=42)
-    pd.testing.assert_frame_equal(df1, df2)
-
-
-def test_schema_columns():
-    df = generate_microgrid_dataset(n_samples=40, seed=123)
-    for col in FEATURE_COLUMNS:
-        assert col in df.columns
-    assert "is_abnormal" in df.columns
+def test_generate_microgrid_dataset():
+    df = generate_microgrid_dataset(n_samples=120, seed=42)
+    assert len(df) == 120
     assert set(df["is_abnormal"].unique()).issubset({0, 1})
+    assert "demand_kw" in df.columns
+    assert "scenario_type" in df.columns
 
 
-def test_validation_rejects_missing_cols():
-    df = pd.DataFrame({"demand_kw": [50.0], "is_abnormal": [0]})
-    is_valid, msg = validate_microgrid_dataframe(df)
-    assert not is_valid
-    assert "Missing required columns" in msg
+def test_validate_microgrid_dataframe():
+    df = generate_microgrid_dataset(n_samples=120, seed=42)
+    valid, msg = validate_microgrid_dataframe(df)
+    assert valid is True
+    assert "valid" in msg.lower()

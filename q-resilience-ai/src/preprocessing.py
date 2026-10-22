@@ -1,22 +1,27 @@
 """
-Microgrid preprocessing & feature scaling.
+Microgrid Preprocessing & Feature Scaling
+Enforces train-test isolation and maps sensor features into quantum circuit encoding range [0, 2pi].
 """
 
-from typing import List, Tuple
-
+from typing import Dict, List, Tuple
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
+
 
 DEFAULT_FEATURES = ["demand_kw", "solar_kw", "voltage_dev_v", "frequency_dev_hz"]
 
 
 class MicrogridPreprocessor:
-    def __init__(self, feature_cols: List[str] | None = None, scaler_type: str = "minmax"):
+    """
+    Fits scaler only on training data and transforms test samples into [0, 2pi].
+    """
+
+    def __init__(self, feature_cols: List[str] = None, scaler_type: str = "minmax"):
         self.feature_cols = feature_cols or DEFAULT_FEATURES
         self.scaler_type = scaler_type
-        self.scaler = MinMaxScaler(feature_range=(0.0, 2.0 * np.pi)) if scaler_type == "minmax" else None
+        self.scaler = MinMaxScaler(feature_range=(0.0, 2.0 * np.pi)) if scaler_type == "minmax" else StandardScaler()
         self.is_fitted = False
 
     def fit(self, df_train: pd.DataFrame):
@@ -37,12 +42,23 @@ class MicrogridPreprocessor:
 
 def prepare_dataset_splits(
     df: pd.DataFrame,
-    feature_cols: List[str] | None = None,
+    feature_cols: List[str] = None,
     test_size: float = 0.25,
     seed: int = 42,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, MicrogridPreprocessor]:
+    """
+    Performs stratified train/test split and fits preprocessor solely on train partition.
+    
+    Returns:
+        X_train, X_test, y_train, y_test, preprocessor
+    """
     feature_cols = feature_cols or DEFAULT_FEATURES
-    train_df, test_df = train_test_split(df, test_size=test_size, random_state=seed, stratify=df["is_abnormal"])
+    train_df, test_df = train_test_split(
+        df,
+        test_size=test_size,
+        random_state=seed,
+        stratify=df["is_abnormal"],
+    )
 
     preprocessor = MicrogridPreprocessor(feature_cols=feature_cols, scaler_type="minmax")
     X_train = preprocessor.fit_transform(train_df)
@@ -50,4 +66,5 @@ def prepare_dataset_splits(
 
     y_train = train_df["is_abnormal"].values
     y_test = test_df["is_abnormal"].values
+
     return X_train, X_test, y_train, y_test, preprocessor
