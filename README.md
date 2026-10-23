@@ -1,6 +1,6 @@
 <div align="center">
 
-# Q-Silience — Q-Resilience AI
+# Q-Resilience AI
 ### Quantum-Enhanced Microgrid Anomaly Detection & Autonomous Protection
 
 **VTU-Qiskit Fall Fest 2026** &nbsp;|&nbsp; Team **Ctrl_AI** (`VTU-QFF-HC-0025`) &nbsp;|&nbsp; Tier: **Both**
