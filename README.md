@@ -122,7 +122,15 @@ Q-Silience/
 ---
 
 ## 💡 Proposed Solution
-<img width="1915" height="971" alt="Prototype" src="https://github.com/user-attachments/assets/3dcd873a-861d-434a-b59e-adbce3cd9806" />
+<img width="1915" height="1000" alt="Prototype" src="https://github.com/user-attachments/assets/3dcd873a-861d-434a-b59e-adbce3cd9806" />
+
+
+
+
+
+
+
+
 
 
 **Q-Silience (Q-Resilience AI)** is an exploratory quantum-classical microgrid anomaly detection and diagnostic prototype developed for the VTU-Qiskit Fall Fest 2026. It features:
