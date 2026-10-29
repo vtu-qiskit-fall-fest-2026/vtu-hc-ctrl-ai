@@ -23,7 +23,7 @@
 | :--- | :--- |
 | **Team Name** | Ctrl_AI |
 | **Team ID** | VTU-QFF-HC-0025 |
-| **GitHub Repository** | [Dhyanpol55/Q-Silience](https://github.com/Dhyanpol55/Q-Silience) |
+| **GitHub Repository** | https://github.com/vtu-qiskit-fall-fest-2026/vtu-hc-ctrl-ai.git |
 | **Hackathon Team Repo** | [vtu-qiskit-fall-fest-2026/vtu-hc-ctrl-ai](https://github.com/vtu-qiskit-fall-fest-2026/vtu-hc-ctrl-ai.git) |
 | **Live Frontend** | [https://qresilience.vercel.app/](https://qresilience.vercel.app/) |
 | **Demo Video (YouTube)** | [https://youtu.be/HAgrzv3rs3k](https://youtu.be/HAgrzv3rs3k) |
@@ -343,7 +343,7 @@ npm run lint
 
 - 🌐 **Live Demo:** https://qresilience.vercel.app/
 - 🎥 **Video Demo (YouTube):** https://youtu.be/HAgrzv3rs3k
-- 💻 **Project Repository:** https://github.com/Dhyanpol55/Q-Silience
+- 💻 **Project Repository:** [https://github.com/vtu-qiskit-fall-fest-2026/vtu-hc-ctrl-ai.git]
 - 🏛️ **Official Hackathon Repo:** https://github.com/vtu-qiskit-fall-fest-2026/vtu-hc-ctrl-ai.git
 - 🔌 **Backend Health Check:** https://q-silience.onrender.com/health
 
